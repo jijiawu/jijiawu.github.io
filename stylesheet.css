@@ -99,6 +99,11 @@ subheading {
   font-size: 18px;
 }
 
+subsubheading {
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
 .people{
   /* width: 90%;
   max-width: 840px; */
@@ -356,4 +361,73 @@ hr.soft {
   background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
   padding: 0;
   margin: 0;
+}
+
+/* Link Styles */
+a {
+  color: #1772d0;
+  text-decoration: none;
+}
+
+a:focus,
+a:hover {
+  color: #f09228;
+  text-decoration: none;
+}
+
+/* Navigation Pills */
+.nav-pills {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-pills .method-pill {
+  margin: 1px;
+}
+
+.nav-pills .method-pill a {
+  display: block;
+  padding: 10px;
+  /* margin: 5px; */
+  /* font-size: 0.9rem; */
+  color: #1772d0; /* Match the link color */
+  background-color: transparent;
+  border: 1px transparent;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.0s, color 0.0s;
+}
+
+.nav-pills .method-pill a:hover {
+  color: #f09228; /* Match the hover color */
+  background-color: #eeeeee;
+}
+
+.nav-pills .method-pill.active a {
+  color: #fff;
+  background-color: #1772d0; /* Use the link color for background */
+  border-color: #1772d0;
+}
+
+.nav-pills .method-pill.active a:hover {
+  background-color: #145a9e; /* Slightly darker on hover when active */
+}
+
+/* New CSS to Start a New Line */
+.nav-pills .new-line {
+  flex-basis: 100%;
+}
+
+/* Line Break Element */
+.nav-pills .line-break {
+  flex-basis: 100%;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
 }

@@ -10,6 +10,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" />
+
   <link rel="icon" href="./images/github.png" type="image/png" />
 </head>
 
@@ -37,7 +39,7 @@
             <tbody>
               <tr style="padding: 0px">
                 <td style="padding: 2.5%; width: 63%; vertical-align: middle">
-                  <p style="text-align: center">
+                  <p style="text-align: center; min-width: 300px">
                     <name>Ji-Jia Wu | 吳季嘉</name>
                   </p>
                   <p style="text-align: justify">
@@ -324,18 +326,61 @@
 
             </tbody>
           </table>
-
+          <hr class="soft" />
+          <br>
           <div class="container quote2">
             <center>
               <heading>Academic Service</heading>
             </center>
           </div>
-          <div>Reviewer, ICCV 2025</div>
-          <div>Reviewer, CVPR 2025</div>
-          <div>Teaching Assistant, Pattern Recognition (Spring 2024 - NYCU)</div>
-          <div>Teaching Assistant, Introduction to Machine Learning (2023 Fall - NYCU)</div>
-          <div>Teaching Assistant, Pattern Recognition (Spring 2023 - NYCU)</div>
-          <div>Teaching Assistant, Introduction to Machine Learning (2022 Fall - NYCU)</div>
+          <!-- Pills at center -->
+          <div style="text-align: center;">
+            <ul class="nav nav-pills center-pills" style="display: inline-flex; gap: 10px;">
+              <li class="method-pill" data-value="paper-reviewer">
+                <a style="cursor: pointer;"><i class="pe-2"></i>Paper Reviewer</a>
+              </li>
+              <li class="method-pill active" data-value="teaching-assistant">
+                <a style="cursor: pointer;"><i class="pe-2"></i>Teaching Assistant</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Content Blocks -->
+          <div id="paper-reviewer" class="academic-content" style="text-align: center; display: none;">
+            <div>ICCV 2025</div>
+            <div>CVPR 2025</div>
+            <div>ECCV 2024</div>
+          </div>
+
+
+          <div id="teaching-assistant" class="academic-content" style="
+        display: block;
+        text-align: center;
+        font-size: 14px;
+        margin: 0 auto;
+        max-width: 420px;
+      ">
+            <table style="margin: 0 auto; text-align: left; font-family: 'Courier New', monospace; border-spacing: 0;">
+              <tbody>
+                <tr>
+                  <td style="padding-right: 4px;">(Spring 2024 - NYCU)</td>
+                  <td>Pattern Recognition</td>
+                </tr>
+                <tr>
+                  <td>(Fall 2023 - NYCU)</td>
+                  <td>Introduction to Machine Learning</td>
+                </tr>
+                <tr>
+                  <td>(Spring 2023 - NYCU)</td>
+                  <td>Pattern Recognition</td>
+                </tr>
+                <tr>
+                  <td>(Fall 2022 - NYCU)</td>
+                  <td>Introduction to Machine Learning</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
           <table style="
                 width: 100%;
@@ -366,5 +411,48 @@
     </tbody>
   </table>
 </body>
+
+<script>
+  function AcademicContribSelect(topic) {
+    console.log("Selected topic:", topic);
+
+    // Hide all academic content blocks
+    const sections = document.querySelectorAll(".academic-content");
+    sections.forEach(section => {
+      section.style.display = "none";
+    });
+
+    // Show the selected one
+    const selected = document.getElementById(topic);
+    if (selected) {
+      selected.style.display = "block";
+    } else {
+      console.error("Unsupported topic:", topic);
+    }
+
+    // Update active pill
+    const pills = document.querySelectorAll(".method-pill");
+    pills.forEach(pill => {
+      if (pill.dataset.value === topic) {
+        pill.classList.add("active");
+      } else {
+        pill.classList.remove("active");
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const pills = document.querySelectorAll(".method-pill");
+    pills.forEach(pill => {
+      pill.addEventListener("click", function () {
+        const topic = pill.dataset.value;
+        AcademicContribSelect(topic);
+      });
+    });
+
+    AcademicContribSelect("paper-reviewer");
+  });
+
+</script>
 
 </html>
